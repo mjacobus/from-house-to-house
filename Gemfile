@@ -15,6 +15,7 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'rb-inotify', '~> 0.8.8'
   gem 'simplecov', :require => false
+  gem 'database_cleaner'
 end
 
 group :assets do
