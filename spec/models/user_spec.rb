@@ -16,7 +16,6 @@ describe User do
     it { should allow_mass_assignment_of(:email) }
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email).case_insensitive }
-    it "validates format of email"
   end
 
   describe "#name" do
