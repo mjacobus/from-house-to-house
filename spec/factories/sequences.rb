@@ -17,6 +17,12 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
+  sequence :short do |n|
+    "SN#{n}"
+  end
+end
+
+FactoryGirl.define do
   sequence :title do |n|
     "Title #{n}"
   end
