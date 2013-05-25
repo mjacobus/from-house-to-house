@@ -6,6 +6,16 @@ describe Area, "#city" do
   it { should validate_presence_of(:city) }
 end
 
+describe Area, '#destroy' do
+   it "fails when has homes but succeeds when does not" do
+    create(:home).area.destroy.should be_false
+    create(:area).destroy.should be_true
+  end
+end
+
+describe Area, '#homes' do
+  it { should have_many(:homes) }
+end
 
 describe Area, "#name" do
   it { should allow_mass_assignment_of(:name) }

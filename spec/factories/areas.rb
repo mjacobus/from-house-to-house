@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :area do
-    name "MyString"
+    name { generate(:name) }
     city
   end
 end

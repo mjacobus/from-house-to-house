@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525133004) do
+ActiveRecord::Schema.define(:version => 20130525135638) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(:version => 20130525133004) do
 
   add_index "cities", ["name"], :name => "index_cities_on_name", :unique => true
   add_index "cities", ["short"], :name => "index_cities_on_short", :unique => true
+
+  create_table "homes", :force => true do |t|
+    t.string   "address"
+    t.string   "phone"
+    t.string   "number"
+    t.integer  "territory_id"
+    t.integer  "area_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "homes", ["area_id"], :name => "index_homes_on_area_id"
+  add_index "homes", ["territory_id"], :name => "index_homes_on_territory_id"
 
   create_table "territories", :force => true do |t|
     t.string   "name"
