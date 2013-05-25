@@ -1,5 +1,9 @@
 require 'spec_helper'
 
+describe EventStatus, '#events' do
+  it { should have_many(:events) }
+end
+
 describe EventStatus, '#name' do
   it { should allow_mass_assignment_of(:name) }
   it { should validate_presence_of(:name) }

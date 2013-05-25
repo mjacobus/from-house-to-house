@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :event_status do
-    name "MyString"
-    slug "MyString"
+    name { generate(:name) }
+    slug { generate(:name) }
   end
 end

@@ -1,5 +1,6 @@
 class EventType < ActiveRecord::Base
   attr_accessible :name, :slug
+  has_many :events, foreign_key: :type_id
 
   validates :name, presence: true, uniqueness: { case_sensitive: true }
   validates :slug, presence: true, uniqueness: { case_sensitive: true }
