@@ -17,6 +17,8 @@ group :test, :development do
   gem 'rb-inotify', '~> 0.8.8'
   gem 'simplecov', :require => false
   gem 'database_cleaner'
+  gem 'spork', '~> 1.0rc'
+  gem 'guard-spork'
 end
 
 group :assets do
