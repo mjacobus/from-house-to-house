@@ -13,6 +13,5 @@ class User < ActiveRecord::Base
     :remember_me
 
   validates :name, presence: true, uniqueness: { case_sensitive: false }
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
 
 end
