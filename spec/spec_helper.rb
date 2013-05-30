@@ -43,8 +43,6 @@ else
     require 'rspec/autorun'
     require 'paperclip/matchers'
 
-    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
-
     RSpec.configure do |config|
       config.use_transactional_fixtures = true
       config.infer_base_class_for_anonymous_controllers = false
@@ -57,6 +55,7 @@ else
   end
 
   Spork.each_run do
+    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
     FactoryGirl.reload
   end
 end

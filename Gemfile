@@ -8,6 +8,7 @@ gem 'capistrano'
 gem "twitter-bootstrap-rails"
 gem "rails-backbone"
 gem 'devise'
+gem 'kaminari'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
