@@ -9,4 +9,6 @@ describe Admin::TerritoriesController do
     let(:valid_user)  { create(:user, admin: true) }
     let(:valid_attributes)  { attributes_for(:territory).merge(city_id: create(:city).id.to_s) }
   end
+
+  it_behaves_like 'a login protected resource'
 end
