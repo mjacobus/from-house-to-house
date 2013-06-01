@@ -17,7 +17,7 @@ guard 'spork',
 end
 
 guard 'rspec',
-  :cli => "--color --format nested --drb",
+  :cli => "--color --drb",
   :notification => false,
   :all_on_start => false,
   :focus => true,

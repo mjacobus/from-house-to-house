@@ -1,41 +1,17 @@
+require 'admin_controller'
+
 module Admin
-  class TerritoriesController < BaseController
-    respond_to :html
-
-    def index
-      @territories = Territory.page(page).per(per)
-      respond_with(@territories)
+  class TerritoriesController < InheritedResources::Base 
+    include AdminController 
+    # defaults route_prefix: 'admin'
+    #
+    # not working.
+    #
+    # this is a workaround
+    # it raises undefined method territory_url 
+    def territory_url(territory)
+      admin_territory_url(territory)
     end
 
-    def show
-      @territory = Territory.find(params[:id])
-      respond_with(@territory)
-    end
-
-    def new
-      @territory = Territory.new
-      respond_with(@territory) 
-    end
-
-    def edit
-      show
-    end
-
-    def create
-      @territory = Territory.create(params[:territory])
-      respond_with(:admin, @territory)
-    end
-
-    def update
-      @territory = Territory.find(params[:id])
-      @territory.update_attributes(params[:territory])
-      respond_with(:admin, @territory)
-    end
-
-    def destroy
-      @territory = Territory.find(params[:id])
-      @territory.destroy
-      respond_with(:admin, @territory)
-    end
   end
 end
