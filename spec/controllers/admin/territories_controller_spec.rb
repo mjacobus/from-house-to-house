@@ -11,4 +11,8 @@ describe Admin::TerritoriesController do
   end
 
   it_behaves_like 'a login protected resource'
+  
+  it_behaves_like 'a protected resource' do
+    let(:invalid_user) { create(:user, admin: false) } 
+  end
 end
