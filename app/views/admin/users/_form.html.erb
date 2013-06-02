@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @user], :html => {:class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name  %>
+  <%= f.input :email  %>
+  <%= f.input :admin unless @user.id.present? && current_user.id == @user.id %>
+  <%= f.input :password unless @user.id.present? %>
+
+  <%= render :partial => 'form_actions', locals: { form: f } %>
+<% end %>

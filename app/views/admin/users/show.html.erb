@@ -1,0 +1,7 @@
+<%= render :partial => 'show_record_title', locals: { record: @user } %>
+<%= show_for(@user) do |s| %>
+  <%= s.attribute :name %>
+  <%= s.attribute :email %>
+  <%= s.attribute :admin %>
+<% end %>
+<%= render :partial => 'show_actions', locals: { record: @user } %>

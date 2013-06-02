@@ -5,6 +5,7 @@ FromHouseToHouse::Application.routes.draw do
     resources :areas
     resources :cities
     resources :territories
+    resources :users
   end
   
 end
