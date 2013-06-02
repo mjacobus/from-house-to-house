@@ -234,6 +234,7 @@ DEPENDENCIES
   factory_girl_rails
   guard-rspec
   guard-spork
+  has_scope
   inherited_resources
   jquery-fileupload-rails
   jquery-rails

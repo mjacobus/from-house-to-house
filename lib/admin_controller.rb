@@ -6,6 +6,8 @@ module AdminController
   included do
     before_filter :authenticate_user!
     before_filter :require_admin!
+    has_scope :page, default: 1 
+    has_scope :per, default: 20
   end
 
   def page

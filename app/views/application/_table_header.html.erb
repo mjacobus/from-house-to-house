@@ -1,0 +1,13 @@
+<tr>
+  <% titles.each do |title| %>
+    <th><%= model.human_attribute_name(title) %></th>
+  <% end %>
+  <th>
+    <%= link_to(
+      t('.new', default: t('system.view.links.new')),
+      [:new, :admin, model.model_name.singular_route_key],
+      class: 'btn btn-primary'
+    
+    ) %>
+  </th>
+</tr>

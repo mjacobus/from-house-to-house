@@ -10,6 +10,7 @@ gem "rails-backbone"
 gem 'devise'
 gem 'kaminari'
 gem 'inherited_resources'
+gem 'has_scope'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

@@ -1,0 +1,10 @@
+<%= link_to(t('.show', default: t('system.view.links.show')),
+  [:admin, record], class: 'btn btn-info btn-show'
+) %>
+<%= link_to(t('.edit', default: t('system.view.links.edit')),
+  [:edit, :admin, record], class: 'btn btn-edit'
+) %>
+<%= link_to(t('.destroy', default: t('system.view.links.destroy')),
+            [:admin, record], class: 'btn btn-danger', method: :delete,
+            confirm: t('.confirm_destroy', default: t('system.view.links.confirm_destroy'))
+) %>

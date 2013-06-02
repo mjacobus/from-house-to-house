@@ -1,0 +1,15 @@
+
+<table class="table table-striped">
+  <%= render partial: 'table_header', locals: { model: Territory, titles: [:name, :city] } %>
+<% @territories.each do |territory| %>
+  <tr>
+    <td><%= territory.name %></td>
+    <td><%= territory.city.short %></td>
+    <td>
+      <%= render partial: 'table_actions', locals: { record: territory } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginate(@territories) %>
