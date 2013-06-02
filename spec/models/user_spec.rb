@@ -10,6 +10,7 @@ describe User do
 
   describe "#admin" do
     it { should_not allow_mass_assignment_of(:admin) }
+    it { should allow_mass_assignment_of(:admin).as(:admin) }
   end
 
   describe "#email" do

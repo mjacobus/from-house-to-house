@@ -2,8 +2,9 @@
 city = City.find_or_create_by_name!("Novo Hamburgo", {short: "NH"})
 
 1.upto(20) do |n|
-  Territory.find_or_create_by_name("T#{n}",{city_id: city.id})
-  Area.find_or_create_by_name("Bairro #{n}",{city_id: city.id})
+  Territory.find_or_create_by_name!("T#{n}",{city_id: city.id})
+  Area.find_or_create_by_name!("Bairro #{n}",{city_id: city.id})
+  User.find_or_create_by_email!("email#{n}@example.com",{password: :password, name: "Nome #{n}"})
 end
 
 

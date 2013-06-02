@@ -208,6 +208,7 @@ pt-BR:
     models:
       territory: Território
       area: Bairro 
+      user: Usuário
       city: Cidade
     attributes:
       territory:
@@ -218,7 +219,15 @@ pt-BR:
         city: Cidade
       city:
         name: Nome
-        short: Abreviado 
+        short: Abreviado
+      user:
+        name: Nome
+        email: Email
+        password: Senha
+        admin: Admin?
+  
+  'true': Sim
+  'false': Não 
   views:
     pagination:
       first: Primeira 

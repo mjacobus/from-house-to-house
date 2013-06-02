@@ -1,19 +1,27 @@
-shared_examples_for "a resource" do
+shared_examples_for "a resource" do |options = {}|
+  options[:except] ||= []  
+  @actions = [:index, :show, :edit, :new, :create, :update, :destroy].reject do |a|
+    options[:except].include?(a)
+  end
+
   let(:valid_session) do
     sign_in valid_user
     @session
   end
 
+  let(:hole) { nil }
 
-  describe "GET index" do
-    before { get :index, {}, valid_session }
+  if @actions.include?(:index)
+    describe "GET index" do
+      before { get :index, {}, valid_session }
 
-    it "responds with success" do
-      response.should be_success
-    end
+      it "responds with success" do
+        response.should be_success
+      end
 
-    it "assigns resources to collection" do
-      assigns(collection_name).should eq([])
+      it "assigns resources to collection" do
+        assigns(collection_name).should eq([])
+      end
     end
   end
 
@@ -48,8 +56,9 @@ shared_examples_for "a resource" do
   describe "POST create" do
     context "with valid params" do
       it "creates record" do
+        the_session = valid_session
         expect do
-          post :create, { param_name => valid_attributes }, valid_session
+          post :create, { param_name => valid_attributes }, the_session 
         end.to change(model_class, :count).by(1)
       end
 
@@ -87,7 +96,11 @@ shared_examples_for "a resource" do
   describe "PUT update" do
     context "with valid params" do
       it "updates record" do
-        model_class.any_instance.should_receive(:update_attributes).with(valid_attributes.stringify_keys)
+        if hole
+          model_class.any_instance.should_receive(:update_attributes).with(valid_attributes.stringify_keys,{as: hole})
+        else  
+          model_class.any_instance.should_receive(:update_attributes).with(valid_attributes.stringify_keys)
+        end 
         put :update, {id: resource.id, param_name => valid_attributes}, valid_session
       end
       
@@ -110,8 +123,9 @@ shared_examples_for "a resource" do
   describe "DELETE destroy" do
     it "destroy record" do
       id = resource.id
+      the_session = valid_session
       expect do
-        delete :destroy, {id: id}, valid_session 
+        delete :destroy, {id: id}, the_session
       end.to change(model_class, :count).by(-1)
     end
 

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
-    name "MyString"
+    name { generate(:name) } 
     phone "MyString"
     email { generate(:email) }
     password 'password'
