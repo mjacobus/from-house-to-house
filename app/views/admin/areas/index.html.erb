@@ -1,0 +1,16 @@
+<%= render :partial => 'list_records_title', locals: { model: Area } %>
+
+<table class="table table-striped">
+  <%= render partial: 'table_header', locals: { model: Area, titles: [:name, :city] } %>
+<% @areas.each do |area| %>
+  <tr>
+    <td><%= area.name %></td>
+    <td><%= area.city.short %></td>
+    <td>
+      <%= render partial: 'table_actions', locals: { record: area } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginate(@areas) %>

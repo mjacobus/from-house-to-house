@@ -207,9 +207,13 @@ pt-BR:
       <<: *errors
     models:
       territory: Território
+      area: Bairro 
       city: Cidade
     attributes:
       territory:
+        name: Name
+        city: Cidade
+      area:
         name: Nome
         city: Cidade
       city:
