@@ -29,6 +29,7 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to Territory.model_name.human, [:admin, :territories]  %></li>
+              <li><%= link_to City.model_name.human, [:admin, :cities]  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -42,6 +43,7 @@
             <ul class="nav nav-list">
               <li class="nav-header"><%= t('system.view.links.sidebar') %></li>
               <li><%= link_to Territory.model_name.human, [:admin, :territories]  %></li>
+              <li><%= link_to City.model_name.human, [:admin, :cities]  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

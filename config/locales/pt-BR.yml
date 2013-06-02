@@ -207,10 +207,14 @@ pt-BR:
       <<: *errors
     models:
       territory: Território
+      city: Cidade
     attributes:
       territory:
         name: Nome
         city: Cidade
+      city:
+        name: Nome
+        short: Abreviado 
   views:
     pagination:
       first: Primeira 

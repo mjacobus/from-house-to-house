@@ -55,7 +55,7 @@ shared_examples_for "a resource" do
 
       it "redirects to index page" do
         post :create, { param_name => valid_attributes }, valid_session
-        response.should redirect_to(action: :show, id: Territory.last.id)
+        response.should redirect_to(action: :show, id: model_class.last.id)
       end
     end
 

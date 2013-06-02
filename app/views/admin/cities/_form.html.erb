@@ -1,0 +1,7 @@
+<%= simple_form_for [:admin, @city], :html => {:class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name  %>
+  <%= f.input :short  %>
+
+  <%= render :partial => 'form_actions', locals: { form: f } %>
+<% end %>

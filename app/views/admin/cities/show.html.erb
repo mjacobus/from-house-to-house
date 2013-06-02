@@ -1,0 +1,6 @@
+<%= render :partial => 'show_record_title', locals: { record: @city } %>
+<%= show_for(@city) do |s| %>
+  <%= s.attribute :name %>
+  <%= s.attribute :short %>
+<% end %>
+<%= render :partial => 'show_actions', locals: { record: @city } %>
