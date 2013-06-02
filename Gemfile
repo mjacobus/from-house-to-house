@@ -11,6 +11,8 @@ gem 'devise'
 gem 'kaminari'
 gem 'inherited_resources'
 gem 'has_scope'
+gem 'simple_form'
+gem 'show_for'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.0"

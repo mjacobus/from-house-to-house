@@ -1,0 +1,6 @@
+<%= render :partial => 'show_record_title', locals: { record: @territory } %>
+<%= show_for(@territory) do |s| %>
+  <%= s.attribute :name %>
+  <%= s.association :city %>
+<% end %>
+<%= render :partial => 'show_actions', locals: { record: @territory } %>

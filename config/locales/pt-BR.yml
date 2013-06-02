@@ -228,6 +228,8 @@ pt-BR:
       links:
         sidebar: Atalhos 
         actions: Acões
+        back: Voltar
+        cancel: Cancelar 
         destroy: Excluir
         edit: Editar 
         show: Ver 
