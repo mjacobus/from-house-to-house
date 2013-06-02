@@ -221,10 +221,15 @@ pt-BR:
   system:
     messages:
     view:
+      edit_record: Editar %{model}
+      new_record: Novo %{model}
+      show_record: "%{model}"
+      list_records: Listando %{model}
       links:
         sidebar: Atalhos 
         actions: Acões
         destroy: Excluir
         edit: Editar 
         show: Ver 
+        new: Novo
         confirm_destroy: Tem certeza de que deseja excluir este registro?
