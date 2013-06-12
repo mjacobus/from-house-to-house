@@ -1,0 +1,17 @@
+<%= render :partial => 'list_records_title', locals: { model: User } %>
+
+<table class="table table-striped">
+  <%= render partial: 'table_header', locals: { model: User, titles: [:name, :email, :admin] } %>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.name %></td>
+    <td><%= user.email %></td>
+    <td><%= t user.admin?.to_s %></td>
+    <td>
+      <%= render partial: 'table_actions', locals: { record: user } %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<%= paginate(@users) %>
