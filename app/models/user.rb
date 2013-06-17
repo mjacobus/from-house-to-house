@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :events, foreign_key: :publisher_id
   devise :database_authenticatable,
          :recoverable,
          :rememberable,

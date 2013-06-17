@@ -19,6 +19,10 @@ describe User do
     it { should validate_uniqueness_of(:email).case_insensitive }
   end
 
+  describe "#events" do
+    it { should have_many(:events)  }
+  end
+
   describe "#name" do
     it { should allow_mass_assignment_of(:name) }
     it { should validate_presence_of(:name) }
