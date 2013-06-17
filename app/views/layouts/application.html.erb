@@ -17,47 +17,66 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">FromHouseToHouse</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to Territory.model_name.human, [namespace, :territories] if admin_namespace? %></li>
-              <li><%= link_to Area.model_name.human, [namespace, :areas] if admin_namespace? %></li>
-              <li><%= link_to City.model_name.human, [namespace, :cities] if admin_namespace? %></li>
-              <li><%= link_to User.model_name.human, [namespace, :users] if admin_namespace? %></li>
-              <li><%= link_to Home.model_name.human, [namespace, :homes]  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+    <div id="login_bar" class="container-fluid">
+      <div class="row-fluid wrapper">
+        <div class="span10">
+          <div class="welcome-message"><%= decorate(current_user).welcome_message %></div>
+        </div>
+        <div class="span2">
+           <%= link_to t('system.view.links.logout'), destroy_user_session_path, method: :delete %>
         </div>
       </div>
-    </div>
+    </div> 
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header"><%= t('system.view.links.sidebar') %></li>
-              <li><%= link_to Territory.model_name.human, [namespace, :territories] if admin_namespace? %></li>
-              <li><%= link_to Area.model_name.human, [namespace, :areas] if admin_namespace?  %></li>
-              <li><%= link_to City.model_name.human, [namespace, :cities] if admin_namespace? %></li>
-              <li><%= link_to User.model_name.human, [namespace, :users]  if admin_namespace? %></li>
-              <li><%= link_to Home.model_name.human, [namespace, :homes]  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
-        <div class="span9">
-          <%= bootstrap_flash %>
-          <%= yield %>
+    
+    <div class="wrapper">
+      <div id="top_menu" class="navbar navbar-fluid-top">
+        <div class="navbar-inner">
+          <div class="container-fluid">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="#">FromHouseToHouse</a>
+
+            <div class="container-fluid nav-collapse">
+              <ul class="nav">
+                <li><%= link_to Territory.model_name.human, [namespace, :territories] if admin_namespace? %></li>
+                <li><%= link_to Area.model_name.human, [namespace, :areas] if admin_namespace? %></li>
+                <li><%= link_to City.model_name.human, [namespace, :cities] if admin_namespace? %></li>
+                <li><%= link_to User.model_name.human, [namespace, :users] if admin_namespace? %></li>
+                <li><%= link_to Home.model_name.human, [namespace, :homes]  %></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
         </div>
-      </div><!--/row-->
+      </div>
+    </div> <!-- .wrapper -->
+
+    
+    <div class="wrapper">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span9">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+          <div class="span3">
+            <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                <li class="nav-header"><%= t('system.view.links.sidebar') %></li>
+                <li><%= link_to Territory.model_name.human, [namespace, :territories] if admin_namespace? %></li>
+                <li><%= link_to Area.model_name.human, [namespace, :areas] if admin_namespace?  %></li>
+                <li><%= link_to City.model_name.human, [namespace, :cities] if admin_namespace? %></li>
+                <li><%= link_to User.model_name.human, [namespace, :users]  if admin_namespace? %></li>
+                <li><%= link_to Home.model_name.human, [namespace, :homes]  %></li>
+              </ul>
+            </div><!--/.well -->
+          </div><!--/span-->
+        </div><!--/row-->
+      </div>
+    </div>
 
       <footer>
       </footer>

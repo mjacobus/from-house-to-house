@@ -247,6 +247,7 @@ pt-BR:
   system:
     messages:
       cannot_destroy_yourself: Você não pode excluir a sua própria conta.
+      welcome: "Bem vindo %{user}"
     view:
       edit_record: Editar %{model}
       new_record: Novo %{model}
@@ -262,3 +263,4 @@ pt-BR:
         show: Ver 
         new: Novo
         confirm_destroy: Tem certeza de que deseja excluir este registro?
+        logout: Sair
