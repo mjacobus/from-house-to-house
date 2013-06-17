@@ -233,6 +233,7 @@ pt-BR:
         email: Email
         password: Senha
         admin: Admin?
+        publisher: Publicador?
   
   'true': Sim
   'false': Não 
@@ -245,6 +246,7 @@ pt-BR:
       truncate: "..."
   system:
     messages:
+      cannot_destroy_yourself: Você não pode excluir a sua própria conta.
     view:
       edit_record: Editar %{model}
       new_record: Novo %{model}

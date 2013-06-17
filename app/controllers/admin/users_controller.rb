@@ -7,7 +7,7 @@ class Admin::UsersController < InheritedResources::Base
 
   def dont_destroy_yourself
     if current_user.id == User.find(params[:id]).id
-      redirect_to [:admin, :users], notice: t('system.messages.cannot_destroy_yourself')
+      redirect_to [:admin, :users], alert: t('system.messages.cannot_destroy_yourself')
     end
   end
 

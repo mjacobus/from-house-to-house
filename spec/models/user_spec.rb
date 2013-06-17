@@ -29,4 +29,8 @@ describe User do
     it { should allow_mass_assignment_of(:phone) }
   end
 
+ describe "#publisher" do
+    it { should_not allow_mass_assignment_of(:publisher) }
+    it { should allow_mass_assignment_of(:publisher).as(:admin) }
+  end
 end
