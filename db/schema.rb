@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617132217) do
+ActiveRecord::Schema.define(:version => 20130617135616) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(:version => 20130617132217) do
     t.integer  "status_id"
     t.text     "goal"
     t.text     "notes"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "publisher_id"
+    t.integer  "partner_id"
   end
 
   add_index "events", ["status_id"], :name => "index_events_on_status_id"

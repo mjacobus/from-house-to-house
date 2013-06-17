@@ -1,10 +1,13 @@
 class Event < ActiveRecord::Base
   belongs_to :type,   class_name: EventType
   belongs_to :status, class_name: EventStatus
-  attr_accessible :date, :goal, :notes, :status_id, :type_id
+  belongs_to :publisher, class_name: :user, foreign_key: :publisher_id
+  belongs_to :partner, class_name: :user, foreign_key: :partner_id
+  attr_accessible :date, :goal, :notes, :partner_id, :publisher_id, :status_id, :type_id
 
   validates :date, presence: true
   validates :goal, presence: true
+  validates :publisher, presence: true
   validates :status, presence: true
   validates :type, presence: true
 end

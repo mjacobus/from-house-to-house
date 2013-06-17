@@ -15,6 +15,18 @@ describe Event, '#notes' do
   it { should_not validate_presence_of(:notes) }
 end
 
+describe Event, '#publisher' do
+  it { should allow_mass_assignment_of(:publisher_id)  }
+  it { should belong_to(:publisher) }
+  it { should validate_presence_of(:publisher)  }
+end
+
+describe Event, '#partner' do
+  it { should allow_mass_assignment_of(:partner_id)  }
+  it { should belong_to(:partner) }
+  it { should_not validate_presence_of(:partner) }
+end
+
 describe Event, '#status' do
   it { should allow_mass_assignment_of(:status_id) }
   it { should belong_to(:status) }
