@@ -7,5 +7,6 @@ FactoryGirl.define do
     association :status, factory: :event_status
     goal "MyText"
     notes "MyText"
+    publisher factory: :user, publisher: true
   end
 end
