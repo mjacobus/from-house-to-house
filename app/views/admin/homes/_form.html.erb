@@ -1,0 +1,9 @@
+<%= simple_form_for [:admin, @home], :html => {:class => 'form-horizontal' } do |f| %>
+  <%= f.error_notification %>
+  <%= f.association :territory, label_method: :name, value_method: :id %>
+  <%= f.association :area, label_method: :name, value_method: :id %>
+  <%= f.input :address %>
+  <%= f.input :number %>
+
+  <%= render :partial => 'form_actions', locals: { form: f } %>
+<% end %>
