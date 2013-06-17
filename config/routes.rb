@@ -1,6 +1,8 @@
 FromHouseToHouse::Application.routes.draw do
   devise_for :users
 
+  root to: 'publisher/homes#index'
+
   namespace :admin do
     resources :areas
     resources :cities

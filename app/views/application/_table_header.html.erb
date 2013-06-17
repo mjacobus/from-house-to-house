@@ -1,13 +1,13 @@
+<% 
+new_label = t('.new', default: t('system.view.links.new'))
+%>
 <tr>
   <% titles.each do |title| %>
     <th><%= model.human_attribute_name(title) %></th>
   <% end %>
-  <th>
-    <%= link_to(
-      t('.new', default: t('system.view.links.new')),
-      [:new, namespace, model.model_name.singular_route_key],
-      class: 'btn btn-primary'
-    
-    ) %>
+  <th class="actions">
+    <%= link_to [:new, namespace, model.model_name.singular_route_key], title: new_label, class: 'btn btn-new btn-primary' do  %>
+      <i class="icon-plus-sign"></i> <%= new_label %>
+    <% end %>
   </th>
 </tr>
