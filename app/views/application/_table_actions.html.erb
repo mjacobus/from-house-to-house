@@ -1,10 +1,3 @@
-<% 
-confirm_destruction = t('.confirm_destroy', default: t('system.view.links.confirm_destroy'))
-destroy_label = t('.destroy', default: t('system.view.links.destroy'))
-show_label = t('.show', default: t('system.view.links.show'))
-edit_label = t('.edit', default: t('system.view.links.edit'))
-%>
-
 
 <div class="actions">
   <%= link_to [namespace, record], title: show_label, class: 'btn btn-info btn-small' do %>
@@ -18,7 +11,5 @@ edit_label = t('.edit', default: t('system.view.links.edit'))
   <%= link_to [namespace, record], method: :delete, confirm: confirm_destruction, class: 'btn btn-danger btn-delete btn-small', title: destroy_label do %>
     <i class="icon-trash"></i>
   <% end %>
-
-         
 </div>
 

@@ -1,15 +1,16 @@
 <div class="show-actions form-actions">
 
 
-<%= link_to(t('.back', default: t('system.view.links.back')),
-            {action: :index}, class: 'btn btn-back'
-) %>
-<%= link_to(t('.edit', default: t('system.view.links.edit')),
-  [:edit, namespace, record], class: 'btn btn-edit'
-) %>
-<%= link_to(t('.destroy', default: t('system.view.links.destroy')),
-            [namespace, record], class: 'btn btn-danger', method: :delete,
-            confirm: t('.confirm_destroy', default: t('system.view.links.confirm_destroy'))
-) %>
+  <%= link_to({action: :index}, class: 'btn btn-back', title: back_label) do %>
+    <i class="icon-arrow-left"></i> <%= back_label %>
+  <% end %>
+
+  <%= link_to([:edit, namespace, record], class: 'btn btn-edit', title: back_label) do %>
+    <i class="icon-pencil"></i> <%= edit_label %>
+  <% end %>
+
+  <%= link_to [namespace, record], method: :delete, confirm: confirm_destruction, class: 'btn btn-danger btn-delete', title: destroy_label do %>
+    <i class="icon-trash"></i> <%= destroy_label %>
+  <% end %>
 
 </div>

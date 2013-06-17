@@ -8,6 +8,7 @@ describe Publisher::HomesController do
     let(:collection_name)  { :homes  }
     let(:valid_user)  { create(:user, publisher: true) }
     let(:valid_attributes)  { attributes_for(:home).merge(territory_id: create(:territory).id.to_s, area_id: create(:area).id.to_s) }
+    let(:after_destroy_redirect_url) { publisher_homes_path  }
   end
                                                                                                                                      
   it_behaves_like 'a login protected resource'

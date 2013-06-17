@@ -10,6 +10,7 @@ shared_examples_for "a resource" do |options = {}|
   end
 
   let(:hole) { nil }
+  let(:after_destroy_redirect_url) { nil }
 
   if @actions.include?(:index)
     describe "GET index" do
@@ -131,7 +132,8 @@ shared_examples_for "a resource" do |options = {}|
 
     it "redirects to the index action" do
       delete :destroy, {id: resource.id}, valid_session
-      response.should redirect_to(action: :index)
+      url = after_destroy_redirect_url || {action: :index}
+      response.should redirect_to(url)
     end
   end
 
