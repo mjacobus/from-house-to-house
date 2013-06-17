@@ -1,14 +1,14 @@
 <%= render :partial => 'list_records_title', locals: { model: Home } %>
 
 <table class="table table-striped">
-  <%= render partial: 'table_header', locals: { model: Home, titles: [:city, :territory, :area, :address, :number] } %>
+  <%= render partial: 'table_header', locals: { model: Home, titles: [:city, :territory, :area, :address_street, :address_number] } %>
 <% @homes.each do |home| %>
   <tr>
     <td><%= home.area.city.short %></td>
     <td><%= home.territory%></td>
     <td><%= home.area %></td>
-    <td><%= home.address %></td>
-    <td><%= home.number %></td>
+    <td><%= home.address_street %></td>
+    <td><%= home.address_number %></td>
     <td>
       <%= render partial: 'table_actions', locals: { record: home } %>
     </td>

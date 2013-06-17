@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130525153647) do
+ActiveRecord::Schema.define(:version => 20130617020156) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -67,13 +67,13 @@ ActiveRecord::Schema.define(:version => 20130525153647) do
   add_index "events", ["type_id"], :name => "index_events_on_type_id"
 
   create_table "homes", :force => true do |t|
-    t.string   "address"
+    t.string   "address_street"
     t.string   "phone"
-    t.string   "number"
+    t.string   "address_number"
     t.integer  "territory_id"
     t.integer  "area_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "homes", ["area_id"], :name => "index_homes_on_area_id"

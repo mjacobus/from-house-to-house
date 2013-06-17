@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :home do
-    address { generate(:name) } 
+    address_street { generate(:name) } 
     phone { generate(:name) } 
-    number { generate(:name) }
+    address_number { generate(:name) }
     territory
     area
   end

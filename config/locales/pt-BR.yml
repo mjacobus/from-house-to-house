@@ -222,11 +222,11 @@ pt-BR:
         name: Nome
         short: Abreviado
       home:
-        address: Endereco
+        address_street: Endereco
         area: Bairro
         territory: Territorio
         city: Cidade
-        number: Número
+        address_number: Número
       user:
         name: Nome
         email: Email

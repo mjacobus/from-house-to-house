@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Home, "#address" do
-  it { should allow_mass_assignment_of(:address) }
-  it { should validate_presence_of(:address) }
+describe Home, "#address_street" do
+  it { should allow_mass_assignment_of(:address_street) }
+  it { should validate_presence_of(:address_street) }
 end
 
 
@@ -13,9 +13,9 @@ describe Home, "#area" do
 end
 
 
-describe Home, "#number" do
-  it { should allow_mass_assignment_of(:number) }
-  it { should validate_presence_of(:number) }
+describe Home, "#address_number" do
+  it { should allow_mass_assignment_of(:address_number) }
+  it { should validate_presence_of(:address_number) }
 end
 
 
