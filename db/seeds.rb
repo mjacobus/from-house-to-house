@@ -14,10 +14,11 @@ end
 
 
 
-user = User.find_or_create_by_email!('marcelo.jacobus@gmail.com', {
+user = User.find_or_create_by_email!('admin@example.com', {
   password: 'password',
-  name: 'Marcelo Jacobus',
+  name: 'Admin',
 })
 
 user.admin = true
+user.publisher = true
 user.save!

@@ -28,11 +28,11 @@
           <a class="brand" href="#">FromHouseToHouse</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%= link_to Territory.model_name.human, [:admin, :territories]  %></li>
-              <li><%= link_to Area.model_name.human, [:admin, :areas]  %></li>
-              <li><%= link_to City.model_name.human, [:admin, :cities]  %></li>
-              <li><%= link_to User.model_name.human, [:admin, :users]  %></li>
-              <li><%= link_to Home.model_name.human, [:admin, :homes]  %></li>
+              <li><%= link_to Territory.model_name.human, [namespace, :territories] if admin_namespace? %></li>
+              <li><%= link_to Area.model_name.human, [namespace, :areas] if admin_namespace? %></li>
+              <li><%= link_to City.model_name.human, [namespace, :cities] if admin_namespace? %></li>
+              <li><%= link_to User.model_name.human, [namespace, :users] if admin_namespace? %></li>
+              <li><%= link_to Home.model_name.human, [namespace, :homes]  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -45,11 +45,11 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header"><%= t('system.view.links.sidebar') %></li>
-              <li><%= link_to Territory.model_name.human, [:admin, :territories]  %></li>
-              <li><%= link_to Area.model_name.human, [:admin, :areas]  %></li>
-              <li><%= link_to City.model_name.human, [:admin, :cities]  %></li>
-              <li><%= link_to User.model_name.human, [:admin, :users]  %></li>
-              <li><%= link_to Home.model_name.human, [:admin, :homes]  %></li>
+              <li><%= link_to Territory.model_name.human, [namespace, :territories] if admin_namespace? %></li>
+              <li><%= link_to Area.model_name.human, [namespace, :areas] if admin_namespace?  %></li>
+              <li><%= link_to City.model_name.human, [namespace, :cities] if admin_namespace? %></li>
+              <li><%= link_to User.model_name.human, [namespace, :users]  if admin_namespace? %></li>
+              <li><%= link_to Home.model_name.human, [namespace, :homes]  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

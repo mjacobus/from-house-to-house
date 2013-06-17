@@ -5,7 +5,7 @@
   <th>
     <%= link_to(
       t('.new', default: t('system.view.links.new')),
-      [:new, :admin, model.model_name.singular_route_key],
+      [:new, namespace, model.model_name.singular_route_key],
       class: 'btn btn-primary'
     
     ) %>
