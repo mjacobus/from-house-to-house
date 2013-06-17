@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe Admin::AreasController, 'routes' do
+describe Admin::CitiesController, 'routes' do
   it_behaves_like 'routable resource' do
-    let(:controller) { 'admin/areas' }
+    let(:controller) { 'admin/cities' }
   end
 end
