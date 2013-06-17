@@ -8,5 +8,9 @@ FromHouseToHouse::Application.routes.draw do
     resources :territories
     resources :users
   end
+
+  namespace :publisher do
+    resources :homes
+  end
   
 end
