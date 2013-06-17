@@ -208,6 +208,7 @@ pt-BR:
     models:
       territory: Território
       area: Bairro 
+      home: Lar
       user: Usuário
       city: Cidade
     attributes:
@@ -220,6 +221,12 @@ pt-BR:
       city:
         name: Nome
         short: Abreviado
+      home:
+        address_street: Endereco
+        area: Bairro
+        territory: Territorio
+        city: Cidade
+        address_number: Número
       user:
         name: Nome
         email: Email

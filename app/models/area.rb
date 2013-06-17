@@ -9,4 +9,8 @@ class Area < ActiveRecord::Base
 
   validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :city_id}
   validates :city, presence: true
+
+  def to_s
+    name
+  end
 end
