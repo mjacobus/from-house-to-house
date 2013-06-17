@@ -222,6 +222,7 @@ pt-BR:
         name: Nome
         short: Abreviado
       home:
+        address: "%{street} %{number}, %{area} %{city}"
         address_street: Endereco
         area: Bairro
         territory: Territorio
