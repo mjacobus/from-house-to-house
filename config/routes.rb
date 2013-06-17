@@ -4,6 +4,7 @@ FromHouseToHouse::Application.routes.draw do
   namespace :admin do
     resources :areas
     resources :cities
+    resources :homes
     resources :territories
     resources :users
   end
