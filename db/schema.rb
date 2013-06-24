@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624011550) do
+ActiveRecord::Schema.define(:version => 20130624022933) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130624011550) do
     t.integer  "partner_id"
     t.string   "event_type"
     t.string   "status"
+    t.integer  "home_id"
   end
 
   add_index "events", ["event_type"], :name => "index_events_on_event_type"

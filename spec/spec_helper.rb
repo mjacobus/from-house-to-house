@@ -59,7 +59,7 @@ else
   end
 
   Spork.each_run do
-    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+    Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| load f}
     FactoryGirl.reload
     load "#{Rails.root}/config/routes.rb"
   end

@@ -12,7 +12,9 @@ FromHouseToHouse::Application.routes.draw do
   end
 
   namespace :publisher do
-    resources :homes
+    resources :homes do
+      resources :events
+    end
   end
   
 end

@@ -8,5 +8,6 @@ FactoryGirl.define do
     event_type { Event::TYPES.first }
     status { Event::STATUSES.first }
     publisher factory: :user, publisher: true
+    home
   end
 end

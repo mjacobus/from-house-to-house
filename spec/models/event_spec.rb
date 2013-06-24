@@ -10,6 +10,12 @@ describe Event, '#goal' do
   it { should validate_presence_of(:goal) }
 end
 
+describe Event, '#home' do
+  it { should allow_mass_assignment_of(:home_id)  }
+  it { should belong_to(:home) }
+  it { should validate_presence_of(:home)  }
+end
+
 describe Event, '#notes' do
   it { should allow_mass_assignment_of(:notes) }
   it { should_not validate_presence_of(:notes) }

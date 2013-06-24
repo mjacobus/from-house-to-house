@@ -1,6 +1,7 @@
 class Home < ActiveRecord::Base
   belongs_to :territory
   belongs_to :area
+  has_many :events
   attr_accessible :address_street, :address_number, :phone, :area_id, :territory_id
 
   validates :address_street, presence: true

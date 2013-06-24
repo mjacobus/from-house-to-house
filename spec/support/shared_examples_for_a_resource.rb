@@ -9,12 +9,13 @@ shared_examples_for "a resource" do |options = {}|
     @session
   end
 
+  let(:extra_attributes) { Hash.new }
   let(:hole) { nil }
   let(:after_destroy_redirect_url) { nil }
 
   if @actions.include?(:index)
     describe "GET index" do
-      before { get :index, {}, valid_session }
+      before { get :index, {}.merge(extra_attributes), valid_session }
 
       it "responds with success" do
         response.should be_success
@@ -27,7 +28,7 @@ shared_examples_for "a resource" do |options = {}|
   end
 
   describe "GET show" do
-    before { get :show, {id: resource.id}, valid_session }
+    before { get :show, {id: resource.id}.merge(extra_attributes), valid_session }
 
     it "responds with success" do
       response.should be_success
@@ -39,7 +40,7 @@ shared_examples_for "a resource" do |options = {}|
   end
 
   describe "GET new" do
-    before { get :new, {}, valid_session }
+    before { get :new, {}.merge(extra_attributes), valid_session }
 
     it "responds with success" do
       response.should be_success
@@ -59,19 +60,19 @@ shared_examples_for "a resource" do |options = {}|
       it "creates record" do
         the_session = valid_session
         expect do
-          post :create, { param_name => valid_attributes }, the_session 
+          post :create, { param_name => valid_attributes }.merge(extra_attributes), the_session 
         end.to change(model_class, :count).by(1)
       end
 
       it "redirects to index page" do
-        post :create, { param_name => valid_attributes }, valid_session
+        post :create, { param_name => valid_attributes }.merge(extra_attributes), valid_session
         response.should redirect_to(action: :show, id: model_class.last.id)
       end
     end
 
     context "with invalid params" do
       it "re-renders form" do
-        post :create, { param_name => {} }, valid_session
+        post :create, { param_name => {} }.merge(extra_attributes), valid_session
         response.should be_success
         response.should render_template(:new)
       end
@@ -79,7 +80,7 @@ shared_examples_for "a resource" do |options = {}|
   end
 
   describe "GET edit" do
-    before { get :edit, {id: resource.id}, valid_session }
+    before { get :edit, {id: resource.id}.merge(extra_attributes), valid_session }
 
     it "responds with success" do
       response.should be_success
@@ -102,11 +103,11 @@ shared_examples_for "a resource" do |options = {}|
         else  
           model_class.any_instance.should_receive(:update_attributes).with(valid_attributes.stringify_keys)
         end 
-        put :update, {id: resource.id, param_name => valid_attributes}, valid_session
+        put :update, {id: resource.id, param_name => valid_attributes}.merge(extra_attributes), valid_session
       end
       
       it "redirects to record page" do
-        put :update, {id: resource.id, param_name => valid_attributes}, valid_session
+        put :update, {id: resource.id, param_name => valid_attributes}.merge(extra_attributes), valid_session
         response.should redirect_to(action: :show, id: resource.id)
       end
     end
@@ -114,7 +115,7 @@ shared_examples_for "a resource" do |options = {}|
     context "with invalid params" do
       it "re-renders 'edit' page" do
         pending "test failing. Revise"
-        put :update, {id: resource.id, param_name => {}}, valid_session
+        put :update, {id: resource.id, param_name => {}}.merge(extra_attributes), valid_session
         response.should be_success
         response.should render_template(:edit) 
       end
@@ -126,12 +127,12 @@ shared_examples_for "a resource" do |options = {}|
       id = resource.id
       the_session = valid_session
       expect do
-        delete :destroy, {id: id}, the_session
+        delete :destroy, {id: id}.merge(extra_attributes), the_session
       end.to change(model_class, :count).by(-1)
     end
 
     it "redirects to the index action" do
-      delete :destroy, {id: resource.id}, valid_session
+      delete :destroy, {id: resource.id}.merge(extra_attributes), valid_session
       url = after_destroy_redirect_url || {action: :index}
       response.should redirect_to(url)
     end

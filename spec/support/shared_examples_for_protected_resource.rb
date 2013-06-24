@@ -4,12 +4,13 @@ shared_examples "a protected resource" do
     sign_in invalid_user
     @session
   end 
+  let(:extra_attributes) { Hash.new }
 
   context "when user is not logged" do
     describe "GET index" do
       it "raises access denied error" do
         expect do
-          get :index, {}, invalid_session
+          get :index, {}.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end
@@ -17,7 +18,7 @@ shared_examples "a protected resource" do
     describe "GET show" do
       it "raises access denied error" do
         expect do
-          get :show, { id: 2 }, invalid_session
+          get :show, { id: 2 }.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end
@@ -25,7 +26,7 @@ shared_examples "a protected resource" do
     describe "GET new" do
       it "raises access denied error" do
         expect do
-          get :new, {}, invalid_session
+          get :new, {}.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end
@@ -33,7 +34,7 @@ shared_examples "a protected resource" do
     describe "GET edit" do
       it "raises access denied error" do
         expect do
-          get :edit, { id: 1 }, invalid_session
+          get :edit, { id: 1 }.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end
@@ -41,7 +42,7 @@ shared_examples "a protected resource" do
     describe "POST create" do
       it "raises access denied error" do
         expect do
-          post :create, {}, invalid_session
+          post :create, {}.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end
@@ -49,7 +50,7 @@ shared_examples "a protected resource" do
     describe "PUT update" do
       it "raises access denied error" do
         expect do
-          put :update, { id: 1 }, invalid_session
+          put :update, { id: 1 }.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end
@@ -57,7 +58,7 @@ shared_examples "a protected resource" do
     describe "DELETE destroy" do
       it "redirects to login page" do
         expect do
-          delete :destroy, { id: 1 }, invalid_session
+          delete :destroy, { id: 1 }.merge(extra_attributes), invalid_session
         end.to raise_error(AccessDenied)
       end
     end

@@ -1,5 +1,10 @@
 require 'spec_helper'
 
+describe Home, "#events" do
+  it { should have_many(:events)  }
+end
+
+
 describe Home, "#address_street" do
   it { should allow_mass_assignment_of(:address_street) }
   it { should validate_presence_of(:address_street) }
