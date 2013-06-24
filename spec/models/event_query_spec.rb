@@ -2,20 +2,12 @@ require 'spec_helper'
 
 describe EventQuery, "quering by status" do
   let(:status) { event.status }
-  let!(:event)  { create(:event) }
-  let!(:another_event)  { create(:event) }
+  let!(:event)  { create(:event, status: Event::STATUSES.first) }
+  let!(:another_event)  { create(:event, status: Event::STATUSES.last) }
   subject { EventQuery.new }
 
   specify "finds with object" do
     subject.with_status(status).all.should eq([event])
-  end
-
-  specify "finds with id" do
-    subject.with_status_id(status.id).all.should eq([event])
-  end
-
-  specify "finds with status_slug" do
-    subject.with_status_slug(status.slug).all.should eq([event])
   end
 end
 

@@ -28,9 +28,8 @@ describe Event, '#partner' do
 end
 
 describe Event, '#status' do
-  it { should allow_mass_assignment_of(:status_id) }
-  it { should belong_to(:status) }
-  it { should validate_presence_of(:status) }
+  it { should allow_mass_assignment_of(:status) }
+  it { should ensure_inclusion_of(:status).in_array(Event::STATUSES) }
 end
 
 describe Event, '#event_type' do

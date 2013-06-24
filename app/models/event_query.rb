@@ -7,16 +7,7 @@ class EventQuery < Query::Base
   end
 
   def with_status(status)
-    with_status_id(status.id)
-  end
-
-  def with_status_id(id)
-    @query = query.where(status_id: id)
-    self
-  end
-
-  def with_status_slug(slug)
-    @query = query.joins(:status).where(event_statuses: {slug: slug})
+    @query = query.where(status: status)
     self
   end
 
