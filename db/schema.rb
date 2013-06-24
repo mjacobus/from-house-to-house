@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130617135616) do
+ActiveRecord::Schema.define(:version => 20130624002550) do
 
   create_table "areas", :force => true do |t|
     t.string   "name"
@@ -43,19 +43,8 @@ ActiveRecord::Schema.define(:version => 20130617135616) do
   add_index "event_statuses", ["name"], :name => "index_event_statuses_on_name", :unique => true
   add_index "event_statuses", ["slug"], :name => "index_event_statuses_on_slug", :unique => true
 
-  create_table "event_types", :force => true do |t|
-    t.string   "name"
-    t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "event_types", ["name"], :name => "index_event_types_on_name", :unique => true
-  add_index "event_types", ["slug"], :name => "index_event_types_on_slug", :unique => true
-
   create_table "events", :force => true do |t|
     t.datetime "date"
-    t.integer  "type_id"
     t.integer  "status_id"
     t.text     "goal"
     t.text     "notes"
@@ -63,10 +52,11 @@ ActiveRecord::Schema.define(:version => 20130617135616) do
     t.datetime "updated_at",   :null => false
     t.integer  "publisher_id"
     t.integer  "partner_id"
+    t.string   "event_type"
   end
 
+  add_index "events", ["event_type"], :name => "index_events_on_event_type"
   add_index "events", ["status_id"], :name => "index_events_on_status_id"
-  add_index "events", ["type_id"], :name => "index_events_on_type_id"
 
   create_table "homes", :force => true do |t|
     t.string   "address_street"

@@ -3,10 +3,10 @@
 FactoryGirl.define do
   factory :event do
     date "2013-05-25 12:36:47"
-    association :type, factory: :event_type
     association :status, factory: :event_status
     goal "MyText"
     notes "MyText"
+    event_type { Event::TYPES.first  }
     publisher factory: :user, publisher: true
   end
 end

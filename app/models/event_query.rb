@@ -21,17 +21,7 @@ class EventQuery < Query::Base
   end
 
   def with_type(type)
-    with_type_id(type.id)
+    @query = query.where(event_type: type)
   end
 
-  def with_type_id(id)
-    @query = query.where(type_id: id)
-    self
-  end
-
-  def with_type_slug(slug)
-    @query = query.joins(:type).where(event_types: {slug: slug})
-    self
-  end
-  
 end

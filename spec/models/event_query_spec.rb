@@ -21,20 +21,12 @@ end
 
 
 describe EventQuery, "quering by type" do
-  let(:type) { event.type }
-  let!(:event)  { create(:event) }
-  let!(:another_event)  { create(:event) }
+  let(:type) { event.event_type }
+  let!(:event)  { create(:event, event_type: Event::TYPES.first) }
+  let!(:another_event)  { create(:event, event_type: Event::TYPES.last) }
   subject { EventQuery.new }
 
   specify "finds with object" do
     subject.with_type(type).all.should eq([event])
-  end
-
-  specify "finds with id" do
-    subject.with_type_id(type.id).all.should eq([event])
-  end
-
-  specify "finds with slug" do
-    subject.with_type_slug(type.slug).all.should eq([event])
   end
 end

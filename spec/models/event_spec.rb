@@ -33,10 +33,9 @@ describe Event, '#status' do
   it { should validate_presence_of(:status) }
 end
 
-describe Event, '#type' do
-  it { should allow_mass_assignment_of(:type_id) }
-  it { should belong_to(:type) }
-  it { should validate_presence_of(:type) }
+describe Event, '#event_type' do
+  it { should allow_mass_assignment_of(:event_type) }
+  it { should ensure_inclusion_of(:event_type).in_array(Event::TYPES) }
 end
 
 
