@@ -33,6 +33,5 @@ gem 'factory_girl_rails'
 gem 'guard-rspec'
 gem 'shoulda-matchers'
 gem 'database_cleaner'
-gem 'spork'
+gem 'spork-rails', github: 'sporkrb/spork-rails'
 gem 'guard-spork'
-
