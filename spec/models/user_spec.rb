@@ -1,11 +1,5 @@
 require 'spec_helper'
 
-if_fast_spec do
-  fast_support_require 'database'
-  fast_support_require 'database_cleaner'
-  app_require 'app/models/user'
-end
-
 describe User do
 
   describe "#admin" do

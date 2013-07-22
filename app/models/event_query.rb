@@ -2,7 +2,7 @@ class EventQuery < Query::Base
   attr_reader :query
   delegate :all, :each, to: :query
 
-  def initialize(query = Event.scoped)
+  def initialize(query = Event.all)
     @query = query
   end
 
