@@ -28,16 +28,14 @@ unless ENV["SKIP_RAILS"] == 'no'
   require 'fast_spec_helper'
 else
   require 'spork'
+  require 'coveralls'
+
+  Coveralls.wear!
   require 'simplecov'
 
-  Spork.prefork do
-    SimpleCov.start do
-      add_filter "spec"
-      add_group "Models", "app/models"
-      add_group "Controllers", "app/controllers"
-      add_group "Helpers", "app/helpers"
-    end
+  SimpleCov.start 'rails'
 
+  Spork.prefork do
     require File.expand_path("../../config/environment", __FILE__)
     require 'rspec/rails'
     require 'rspec/autorun'
@@ -53,8 +51,8 @@ else
       config.include Devise::TestHelpers, :type => :controller
 
       config.treat_symbols_as_metadata_keys_with_true_values = true
-        config.filter_run :focus => true
-          config.run_all_when_everything_filtered = true
+      config.filter_run focus: true
+      config.run_all_when_everything_filtered = true
     end
   end
 

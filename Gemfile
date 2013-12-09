@@ -25,6 +25,7 @@ group :test, :development do
   gem 'database_cleaner'
   gem 'spork', '~> 1.0rc'
   gem 'guard-spork'
+  gem 'coveralls', require: false
 end
 
 group :assets do
