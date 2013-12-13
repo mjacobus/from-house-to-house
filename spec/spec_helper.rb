@@ -1,6 +1,12 @@
 require 'rubygems'
 # inspired by http://blog.leshill.org/blog/2011/10/23/fast-specs.html
 
+require 'coveralls'
+Coveralls.wear!
+
+require 'simplecov'
+SimpleCov.start 'rails'
+
 ENV["RAILS_ENV"] ||= 'test'
 ENV["SKIP_RAILS"] ||= 'no'
 
@@ -28,12 +34,6 @@ unless ENV["SKIP_RAILS"] == 'no'
   require 'fast_spec_helper'
 else
   require 'spork'
-  require 'coveralls'
-
-  Coveralls.wear!
-  require 'simplecov'
-
-  SimpleCov.start 'rails'
 
   Spork.prefork do
     require File.expand_path("../../config/environment", __FILE__)
